@@ -29,9 +29,9 @@ var HeroService = (function () {
             .catch(this.handleError);
         ;
     };
-    HeroService.prototype.create = function (name) {
+    HeroService.prototype.create = function (hero) {
         return this.http
-            .post(this.heroesUrl, JSON.stringify({ name: name }), { headers: this.headers })
+            .post(this.heroesUrl, JSON.stringify(hero), { headers: this.headers })
             .toPromise()
             .then(function (response) { return response.json().data; })
             .catch(this.handleError);
